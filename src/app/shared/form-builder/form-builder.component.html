@@ -1,0 +1,61 @@
+<div class="flex w-full flex-col gap-20 pt-20">
+  <ng-container>
+    <main class="mx-auto flex w-fit flex-col gap-4">
+      <div class="relative mx-auto flex w-fit flex-row-reverse justify-between">
+        <ng-container *ngFor="let step of allStep; index as i">
+          <section class="relative flex min-w-44 flex-col items-center gap-2">
+            <div
+              (click)="setStep(step)"
+              [ngClass]="{
+                '!bg-muted-foreground': isGivenStepBeforeCurrentStep(step)
+              }"
+              class="relative z-[3] h-4 w-4 cursor-pointer rounded-full border border-muted bg-background text-background"></div>
+
+            <div>
+              <p class="font-light text-muted-foreground">{{ step }}</p>
+            </div>
+
+            @if (i==1 && allStep.length - 1 !== 1) {
+            <div class="absolute end-1/2 top-[7px] z-[2] h-[3px] w-full bg-border"></div>
+            } @else if (allStep.length-1!==i) {
+            <div
+              [ngClass]="{
+                '!h-5 !bg-muted-foreground': allStep[i + 1] && allStep[i + 1] == step
+              }"
+              class="absolute end-1/2 top-[7px] z-[2] h-[3px] w-full bg-border"></div>
+            }
+          </section>
+        </ng-container>
+      </div>
+
+      <ng-container *ngFor="let form of forms; index as formIndex">
+        <div
+          [ngClass]="{
+            '!block': form.rootLabel === currentStep
+          }"
+          class="hidden rounded-md bg-background md:w-[620px]">
+          <p class="p-3 pt-4 text-xl text-muted-foreground">{{ form.rootLabel }}</p>
+          <form class="grid grid-cols-2 gap-3 p-3" [formGroup]="forms[formIndex]">
+            <app-input
+              *ngFor="let control of _getFormControllers(forms[formIndex].controls)"
+              [control]="control"></app-input>
+
+            <div class="col-span-2 flex w-full justify-between">
+              <app-button (buttonClick)="formNextStep(forms[formIndex], formIndex)" impact="bold" tone="primary">
+                {{ form.submitText }}
+              </app-button>
+              <app-button
+                class="ms-auto"
+                *ngIf="formIndex > 0"
+                (buttonClick)="formPrevStep(formIndex)"
+                impact="light"
+                tone="light">
+                {{ 'قبلی' }}
+              </app-button>
+            </div>
+          </form>
+        </div>
+      </ng-container>
+    </main>
+  </ng-container>
+</div>

@@ -17,6 +17,7 @@ import { Theme } from 'src/app/core/models/theme.model';
 })
 export class SidebarComponent implements OnInit {
   public appJson: any = packageJson;
+  public faAppName = '';
 
   constructor(public menuService: MenuService) {}
 

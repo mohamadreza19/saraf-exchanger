@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Nft } from '../../../models/nft';
 import { NftAuctionsTableItemComponent } from '../nft-auctions-table-item/nft-auctions-table-item.component';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
-    selector: '[nft-auctions-table]',
-    templateUrl: './nft-auctions-table.component.html',
-    standalone: true,
-    imports: [NgFor, NftAuctionsTableItemComponent],
+  selector: '[nft-auctions-table]',
+  templateUrl: './nft-auctions-table.component.html',
+  standalone: true,
+  imports: [NgFor, NftAuctionsTableItemComponent, NgClass],
 })
 export class NftAuctionsTableComponent implements OnInit {
   public activeAuction: Nft[] = [];
+  @Input()
+  headerKeys: string[] = ['Name', '	Open Price', 'Price $', '	Recent Offer', 'Time Left', 'View'];
 
   constructor() {
     this.activeAuction = [

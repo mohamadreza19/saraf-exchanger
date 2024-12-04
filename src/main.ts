@@ -6,6 +6,7 @@ import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app/app-routing.module';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { GlobalI18NextPipe } from './app/shared/pipes/global-i18next.pipe';
 
 if (environment.production) {
   enableProdMode();

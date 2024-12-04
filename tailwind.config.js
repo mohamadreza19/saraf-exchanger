@@ -2,7 +2,6 @@
 
 module.exports = {
   prefix: '',
-  mode: 'jit',
   important: false,
   content: ['./src/**/*.{html,ts}'],
   darkMode: 'class',
@@ -83,6 +82,9 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
+        },
+        customBorder: {
+          DEFAULT: 'var(--custom-border)',
         },
       },
     },

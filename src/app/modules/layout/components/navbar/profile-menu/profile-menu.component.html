@@ -5,14 +5,16 @@
     <img
       clickOutside
       (clickOutside)="isOpen = false"
-      class="h-9 w-9 rounded-md"
+      class="h-[44px] w-[44px] rounded-md"
       src="https://avatars.githubusercontent.com/u/12519008?v=4"
       alt="" />
   </button>
   <!-- Dropdown -->
+
   <div
     [@openClose]="isOpen ? 'open' : 'closed'"
-    class="absolute right-0 z-20 mt-2 w-60 origin-top-right transform rounded-md bg-background py-4 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none">
+    [ngClass]="{}"
+    class="absolute end-0 z-20 mt-2 w-60 origin-top-right transform rounded-md bg-background py-4 shadow-custom ring-1 ring-transparent ring-opacity-5 transition focus:outline-none">
     <div class="flext-row flex items-center px-4 pb-4">
       <div class="w-10 shrink-0">
         <img class="rounded-md" src="https://avatars.githubusercontent.com/u/12519008?v=4" alt="" />
@@ -25,7 +27,7 @@
 
     <div class="border-b border-dashed border-border"></div>
 
-    <ul class="my-2 mx-4 flex flex-col">
+    <ul class="mx-4 my-2 flex flex-col">
       @for (item of profileMenu; track $index) {
       <li
         routerLink="{{ item.link }}"
@@ -45,7 +47,7 @@
           :key="$index"
           (click)="toggleThemeColor(item.name)"
           [ngClass]="{ 'border-muted-foreground bg-card': item.name == themeService.theme().color }"
-          class="focus-visible:ring-ring inline-flex h-8 cursor-pointer items-center justify-start whitespace-nowrap rounded-md border border-border bg-background px-3 text-xs font-medium text-muted-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 hover:bg-card hover:text-foreground">
+          class="focus-visible:ring-ring inline-flex h-8 cursor-pointer items-center justify-start whitespace-nowrap rounded-md border border-border bg-background px-3 text-xs font-medium text-muted-foreground shadow-sm transition-colors hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50">
           <span
             [style.backgroundColor]="item.code"
             class="mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-rose-500"></span>
@@ -62,7 +64,7 @@
           :key="$index"
           (click)="toggleThemeMode()"
           [ngClass]="{ 'border-muted-foreground bg-card': item == themeService.theme().mode }"
-          class="focus-visible:ring-ring inline-flex h-8 cursor-pointer items-center justify-start whitespace-nowrap rounded-md border border-border bg-background px-3 text-xs font-medium text-muted-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 hover:bg-card hover:text-foreground">
+          class="focus-visible:ring-ring inline-flex h-8 cursor-pointer items-center justify-start whitespace-nowrap rounded-md border border-border bg-background px-3 text-xs font-medium text-muted-foreground shadow-sm transition-colors hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50">
           <svg-icon
             [src]="
               item == 'light' ? 'assets/icons/heroicons/outline/sun.svg' : 'assets/icons/heroicons/outline/moon.svg'

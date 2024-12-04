@@ -8,11 +8,11 @@
     <!-- List items -->
     <li *ngFor="let item of menu.items">
       <!-- Menu List -->
-      <div (click)="toggleMenu(item)" class="group relative text-muted-foreground">
+      <div (click)="toggleMenu(item)" class="group relative flex text-muted-foreground">
         <!-- Icon -->
         <div
           [ngClass]="item.active && !menuService.showSideBar ? 'text-primary' : 'text-muted-foreground/50'"
-          class="pointer-events-none absolute m-2">
+          class="pointer-events-none m-2">
           <svg-icon src="{{ item.icon }}" [svgClass]="'h-5 w-5'"> </svg-icon>
         </div>
 
@@ -25,11 +25,10 @@
         <!-- Workaround:: Enable routerLink -->
         <ng-template #parentMenu let-item="item">
           <div
+            [ngClass]="{ hidden: !menuService.showSideBar }"
             routerLink="{{ item.route }}"
             class="flex h-9 cursor-pointer items-center justify-start rounded text-muted-foreground hover:bg-card hover:text-foreground">
-            <a
-              routerLinkActive="text-primary"
-              class="ml-10 truncate text-xs font-semibold tracking-wide focus:outline-none">
+            <a routerLinkActive="text-primary" class="truncate text-xs font-semibold tracking-wide focus:outline-none">
               {{ item.label }}
             </a>
           </div>
@@ -37,9 +36,11 @@
 
         <!-- Workaround:: Disable routerLink -->
         <ng-template #childMenu let-item="item">
-          <div class="flex h-9 cursor-pointer items-center justify-start rounded hover:bg-card">
+          <div
+            [ngClass]="{ hidden: !menuService.showSideBar }"
+            class="flex h-9 cursor-pointer items-center justify-start rounded hover:bg-card">
             <a
-              class="ml-10 truncate text-xs font-semibold tracking-wide text-muted-foreground focus:outline-none group-hover:text-foreground">
+              class="truncate text-xs font-semibold tracking-wide text-muted-foreground focus:outline-none group-hover:text-foreground">
               {{ item.label }}
             </a>
           </div>
@@ -49,14 +50,14 @@
         <button
           *ngIf="item.children"
           [ngClass]="{ hidden: !menuService.showSideBar, 'rotate-90': item.expanded }"
-          class="pointer-events-none absolute top-1 right-0 flex items-center p-1 text-muted-foreground/50 transition-all duration-500">
+          class="pointer-events-none ms-auto flex items-center p-1 text-muted-foreground/50 transition-all duration-500">
           <svg-icon src="assets/icons/heroicons/solid/chevron-right.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
         </button>
 
         <!-- Tooltip -->
         <div class="fixed w-full" *ngIf="!menuService.showSideBar">
           <span
-            class="z-1 absolute left-14 -top-[34px] w-auto min-w-max origin-left scale-0 rounded-md bg-foreground p-2 text-xs font-bold text-background shadow-md transition-all duration-200 group-hover:scale-100">
+            class="z-1 absolute -top-[34px] start-14 w-auto min-w-max origin-left scale-0 rounded-md bg-foreground p-2 text-xs font-bold text-background shadow-md transition-all duration-200 group-hover:scale-100">
             {{ item.label }}
           </span>
         </div>

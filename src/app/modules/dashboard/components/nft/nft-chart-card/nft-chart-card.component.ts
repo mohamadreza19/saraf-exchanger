@@ -1,19 +1,30 @@
-import { Component, OnDestroy, OnInit, effect } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { ChartOptions } from '../../../../../shared/models/chart-options';
-import { NgApexchartsModule } from 'ng-apexcharts';
+import { ApexAxisChartSeries, ChartType, NgApexchartsModule } from 'ng-apexcharts';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: '[nft-chart-card]',
   templateUrl: './nft-chart-card.component.html',
   standalone: true,
-  imports: [AngularSvgIconModule, NgApexchartsModule],
+  imports: [AngularSvgIconModule, NgApexchartsModule, NgIf],
 })
 export class NftChartCardComponent implements OnInit, OnDestroy {
   public chartOptions: Partial<ChartOptions>;
 
+  @Input()
+  name = 'Etherium rate';
+  @Input()
+  type: 'mony' | 'person' = 'mony';
+
+  @Input()
+  total = '3,274';
+
+  @Input()
+  chartType: ChartType = 'area';
   constructor(private themeService: ThemeService) {
     let baseColor = '#FFFFFF';
     const data = [2100, 3200, 3200, 2400, 2400, 1800, 1800, 2400, 2400, 3200, 3200, 3000, 3000, 3250, 3250];
@@ -44,7 +55,7 @@ export class NftChartCardComponent implements OnInit, OnDestroy {
       ],
       chart: {
         fontFamily: 'inherit',
-        type: 'area',
+        type: this.chartType,
         height: 150,
         toolbar: {
           show: false,
@@ -90,6 +101,7 @@ export class NftChartCardComponent implements OnInit, OnDestroy {
       },
       tooltip: {
         theme: 'light',
+
         y: {
           formatter: function (val) {
             return val + '$';

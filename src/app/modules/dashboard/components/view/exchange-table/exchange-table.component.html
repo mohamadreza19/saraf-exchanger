@@ -1,0 +1,61 @@
+<div>
+  <p class="p-3 font-bold">{{ label }}</p>
+  <div class="relative overflow-x-auto rounded-xl bg-background">
+    <app-search-input/>
+    <table class="w-full table-auto">
+      <!--Table head-->
+      <thead class="text-xs uppercase text-muted">
+        <tr>
+          <th *ngFor="let key of keys" class="border-b border-customBorder px-6 py-3 text-start text-xs">{{ key }}</th>
+        </tr>
+      </thead>
+      <!--end Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr *ngFor="let item of body; index as i">
+          <ng-container *ngFor="let key of itemKeys(item); index as i2">
+            <td
+              *ngIf="!isItemKeyInForbiddenKey(key)"
+              [ngClass]="{
+                'border-b': i != body.length - 1
+              }"
+              class="border-customBorder px-6 py-3 hover:bg-card">
+              <div class="flex items-center">
+                <img
+                  class="me-2 h-9 w-9 rounded-lg border border-customBorder"
+                  *ngIf="i2 == 0 && itemIconUrls.length"
+                  [src]="itemIconUrls[i]"
+                  alt="tt" />
+                <p
+                  class="text-sm"
+                  [ngClass]="{
+                    'font-light text-muted-foreground': i2> 0,
+                  }">
+                  {{ item[key] }}
+                </p>
+
+              </div>
+            </td>
+          </ng-container>
+          <div class="py-3 ">
+
+
+            <app-button *ngIf="showEdit">ویرایش</app-button>
+          </div>
+        </tr>
+      </tbody>
+      <!--end::Table body-->
+    </table>
+  </div>
+</div>
+
+<!-- *ngFor="let auction of activeAuction"
+[auction]="auction"
+nft-auctions-table-item -->
+
+<!-- *ngFor="let key of headerKeys; index as i"
+[ngClass]="{
+  'text-start': i === 0,
+  'text-center': i > 0,
+  '3text-end3': i == headerKeys.length - 1
+}" -->

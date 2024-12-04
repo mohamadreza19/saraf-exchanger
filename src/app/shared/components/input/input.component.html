@@ -1,0 +1,117 @@
+<section
+*ngIf="show"
+  class="relative col-span-1 w-full"
+  [ngClass]="{
+    ' flex items-center pt-[30px]': control.type == 'radio' || control.type == 'checkbox'
+  }">
+  <label *ngIf="control.type !== 'radio' && control.type !== 'files'" class="m-2 block text-xs font-bold text-muted-foreground"
+    >{{ control.label }}
+  </label>
+
+  <!-- Text Input Template -->
+  <ng-template #textInput>
+    <input type="text" class="w-full rounded-md border border-border px-3 py-3" [formControl]="control" />
+  </ng-template>
+  <ng-template #searchInput>
+
+    <div class="relative">
+      <div class="flex h-full w-fit absolute items-center">
+
+        <svg-icon  svgClass="w-5 h-5 " src="assets/icons/material-icons/outline/search.svg" class="h-4 w-4 mr-2"></svg-icon>
+      </div>
+
+
+        <input class="w-full rounded-md border border-border px-3 ps-8 py-3"  type="text"  [formControl]="control" />
+    </div>
+  </ng-template>
+
+
+  <ng-template #filesInput>
+    <app-files-input [control]="control"/>
+  </ng-template>
+
+  <ng-template #multiSelectInput>
+    <div (clickOutside)="closeCustomBox()">
+      <div class="flex w-full gap-2 overflow-x-auto rounded-md border border-border px-5 py-2 scrollbar-none">
+        <p
+          (click)="openCustomBox()"
+          class="cursor-pointer border-e border-muted-foreground py-[2px] pe-5 text-sm text-muted-foreground">
+          انتخاب
+        </p>
+        <section
+          *ngFor="let option of _getMultiSelectSelectedItemAsArray(control.value)"
+          (click)="_handleRemoveMultiSelectItem(option)"
+          class="flex h-fit w-fit cursor-pointer gap-1 text-nowrap rounded-md bg-border p-1 text-xs font-light text-muted-foreground">
+          <span class="font-bold">x</span>
+          {{ option }}
+        </section>
+      </div>
+      <div
+        *ngIf="isCustomBoxOpen"
+        class="absolute top-[110%] z-[2] flex min-h-20 w-full flex-wrap gap-1 rounded-b-md border border-border bg-background p-2">
+        <section
+          *ngFor="let option of control.options"
+          (click)="_handleSetMultiSelectItem(option)"
+          class="flex h-fit w-fit cursor-pointer gap-1 text-nowrap rounded-md bg-border p-1 text-xs font-light text-muted-foreground">
+          {{ option }}
+        </section>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Email Input Template -->
+  <ng-template #emailInput>
+    <input type="email" class="w-full rounded-md border border-border px-3 py-3" [formControl]="control" />
+  </ng-template>
+
+  <!-- Radio Button Template -->
+  <ng-template #radioInput>
+    <div class="ms-2" *ngFor="let option of control.options; index as i">
+      <label class="text-xs text-muted-foreground">
+        <input type="radio" class="" [checked]="i === 0" [value]="option" [formControl]="control" />
+        {{ option }}
+      </label>
+    </div>
+  </ng-template>
+  <!-- Radio Button Template -->
+  <ng-template #checkbox>
+    <div class="ms-2 flex items-center gap-2" *ngFor="let option of control.options; index as i">
+      <input type="checkbox" class="scale-[.70] rounded-md border border-border px-3 py-3" [formControl]="control" />
+      <label class="text-sm text-muted-foreground">
+        {{ option }}
+      </label>
+    </div>
+  </ng-template>
+
+  <!-- Select Template -->
+  <ng-template #selectInput>
+    <select class="w-full rounded-md border border-border px-3 ps-6 py-3" [formControl]="control">
+      <option *ngFor="let option of control.options">
+        {{option}}
+      </option>
+    </select>
+
+  </ng-template>
+
+  <ng-template #dateInput>
+    <ng-persian-datepicker>
+      <input type="text" class="w-full rounded-md border border-border px-3 py-3" [formControl]="control" />
+    </ng-persian-datepicker>
+  </ng-template>
+
+  <!-- Render the Appropriate Template -->
+  <ng-container [ngSwitch]="control.type">
+    <ng-container *ngSwitchCase="'text'" [ngTemplateOutlet]="textInput"></ng-container>
+    <ng-container *ngSwitchCase="'search'" [ngTemplateOutlet]="searchInput"></ng-container>
+    <ng-container *ngSwitchCase="'files'" [ngTemplateOutlet]="filesInput"></ng-container>
+    <ng-container *ngSwitchCase="'multi-select'" [ngTemplateOutlet]="multiSelectInput"></ng-container>
+    <ng-container *ngSwitchCase="'email'" [ngTemplateOutlet]="emailInput"></ng-container>
+    <ng-container *ngSwitchCase="'radio'" [ngTemplateOutlet]="radioInput"></ng-container>
+    <ng-container *ngSwitchCase="'checkbox'" [ngTemplateOutlet]="checkbox"></ng-container>
+    <ng-container *ngSwitchCase="'select'" [ngTemplateOutlet]="selectInput"></ng-container>
+    <ng-container *ngSwitchCase="'date'" [ngTemplateOutlet]="dateInput"></ng-container>
+    <ng-container *ngSwitchDefault>
+      <p class="text-red-500">Unknown input type</p>
+    </ng-container>
+  </ng-container>
+</section>

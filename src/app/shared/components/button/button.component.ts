@@ -18,6 +18,7 @@ type ButtonProps = {
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent implements OnInit {
+  disabled = input<boolean>(false);
   impact = input<ButtonProps['impact']>('none');
   size = input<ButtonProps['size']>('medium');
   shape = input<ButtonProps['shape']>('rounded');
