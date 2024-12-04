@@ -25,6 +25,11 @@
                 "glob": ".htaccess",
                 "input": "src/",
                 "output": "/"
+              },
+              {
+                "glob": "static.json",
+                "input": "src/",
+                "output": "/"
               }
             ],
             "styles": ["src/styles.scss", "src/styles.css", "node_modules/leaflet/dist/leaflet.css"],
