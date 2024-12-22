@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import {
-  CustomFormControl,
-  CustomFormGroup,
-  FormBuilderComponent,
-} from '../../../../../shared/form-builder/form-builder.component';
-import { FormBuilderConfig, FormConfig } from 'src/app/shared/models/form-builder-config.interface';
+import { CustomFormGroup } from '../../../../../shared/form-builder/form-builder.component';
+
+import { FormBuilder2Component, FormControl2 } from 'src/app/shared/components/form-builder2/form-builder2.component';
 
 @Component({
   selector: 'app-bank-mutate',
   standalone: true,
-  imports: [FormBuilderComponent],
+  imports: [FormBuilder2Component],
   templateUrl: './bank-mutate.component.html',
   styleUrl: './bank-mutate.component.scss',
 })
@@ -18,39 +15,68 @@ export class BankMutateComponent {
 
   constructor() {
     const controls = {
-      name: new CustomFormControl('', {
+      name: new FormControl2('', {
         type: 'text',
         label: 'نام',
-        showIf: [],
+
         validators: [],
       }),
-      logo: new CustomFormControl([], {
+      logo: new FormControl2([], {
         type: 'files',
         filesLength: 1,
         label: 'لوگو',
         validators: [],
-        showIf: [],
+
         allowedFileTypes: ['pdf', 'jpeg', 'png', 'jpg'],
       }),
-      city: new CustomFormControl('', {
+      city: new FormControl2('', {
         type: 'select',
         label: 'شهر',
         validators: [],
         options: ['تهران', 'بوشهر'],
-        showIf: [],
       }),
-      title: new CustomFormControl('', {
+      country: new FormControl2('', {
+        type: 'select',
+        label: 'کشور',
+        validators: [],
+        options: ['ایران', 'ایران'],
+      }),
+      title: new FormControl2('', {
         type: 'text',
         label: 'عنوان',
         validators: [],
-        showIf: [],
       }),
-      isActive: new CustomFormControl('', {
+      isActive: new FormControl2('', {
         type: 'checkbox',
-        label: '',
+        label: 'فعال',
         validators: [],
-        options: ['فعال'],
-        showIf: [],
+        options: [],
+      }),
+      bankType: new FormControl2('', {
+        type: 'select',
+        label: 'نوع بانک',
+        validators: [],
+        options: ['بانک رمز ارز', 'بانک شهری'],
+      }),
+      branchCode: new FormControl2('', {
+        type: 'text',
+        label: 'کد شعبه',
+        validators: [],
+      }),
+      branchName: new FormControl2('', {
+        type: 'text',
+        label: 'نام شعبه',
+        validators: [],
+      }),
+      phone: new FormControl2('', {
+        type: 'text',
+        label: 'تلفن',
+        validators: [],
+      }),
+      address: new FormControl2('', {
+        type: 'text',
+        label: 'آدرس',
+        validators: [],
       }),
     };
     const form1 = new CustomFormGroup(controls, 'افزودن بانک', 'افزودن');

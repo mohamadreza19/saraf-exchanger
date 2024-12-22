@@ -16,155 +16,175 @@ export class Menu {
             // { label: 'Podcast', route: '/dashboard/podcast' },
           ],
         },
-        {
-          icon: 'assets/icons/material-icons/outline/person.svg',
-          label: 'کارمند ها',
-          route: '/employee',
-        },
       ],
     },
     {
-      group: 'ارزی',
+      group: 'اطلاعات اولیه',
       separator: true,
       items: [
         {
           icon: 'assets/icons/material-icons/outline/mony.svg',
-          label: 'مالی',
+          label: 'اطلاعات اولیه',
           route: '/financial',
           children: [
-            {
-              label: 'صرافی ها',
-              route: '/financial/exchange-office',
-            },
             {
               label: 'ارزها',
               route: '/financial/currency',
             },
-          ], // { label: 'Podcast', route: '/dashboard/podcast' },],
-        },
-        {
-          icon: 'assets/icons/circum-icons/outline/bank.svg',
-          label: 'کشورها و بانک‌ها',
-          route: '/geographical',
-          children: [
             {
-              label: 'بانکها',
-              route: '/geographical/bank',
+              label: 'بانک/حساب/دسته چک',
+              icon: 'assets/icons/circum-icons/outline/bank.svg',
+              children: [
+                {
+                  label: 'بانک ها',
+                  route: '/geographical/bank',
+                },
+                {
+                  label: 'حساب ها',
+                  route: '/financial/bank-account',
+                },
+                {
+                  label: 'دسته چک',
+                  route: '/financial/bank-checkbook',
+                },
+              ],
             },
-          ], // { label: 'Podcast', route: '/dashboard/podcast' },],
+            {
+              label: 'صندوق / خزانه',
+              route: '/financial/cash-treasury',
+            },
+            {
+              label: 'سهام داران',
+              route: '/financial/shareholder',
+              // children: [
+              //   {
+              //     label: 'سهام داران',
+              //     route: '/financial/shareholder',
+              //   },
+              //   // {
+              //   //   label: 'کشور',
+              //   //   route: '/geographical/country',
+              //   // },
+              //   // {
+              //   //   label: 'شهر',
+              //   //   route: '/geographical/city',
+              //   // },
+              // ],
+            },
+          ],
         },
       ],
     },
     {
-      group: 'گزارش و ارتباط با مشتری',
-      separator: true,
-      items: [
-        {
-          icon: 'assets/icons/material-icons/outline/clipboard.svg',
-          label: 'گزارش ها',
-          route: '/reports',
-        },
-        {
-          icon: 'assets/icons/font-awesome/outline/comment.svg',
-          label: 'ارتباط با مشتری',
-          route: '/contact/customer',
-        },
-      ],
-    },
-    {
-      group: 'پنل و ادمین',
+      group: 'کاربران',
       separator: true,
 
       items: [
         {
-          label: 'پنل ها',
-          route: '/admin/panel',
+          icon: '/assets/icons/material-icons/outline/person.svg',
+          label: ' کارمند ها',
+          route: '/resource/employee',
         },
         {
-          label: 'ثبت شماره حسابهای ادمین',
-          route: '/registering-admin-account-numbers',
+          icon: '/assets/icons/material-icons/outline/referral.svg',
+          label: ' معرف ها',
+          route: '/resource/referrer',
+        },
+        {
+          icon: '/assets/icons/material-icons/outline/people.svg',
+          label: ' مشتریان',
+          route: '/resource/customer',
         },
       ],
     },
-    // {
-    //   group: 'Collaboration',
-    //   separator: true,
-    //   items: [
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/download.svg',
-    //       label: 'Download',
-    //       route: '/download',
-    //     },
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/gift.svg',
-    //       label: 'Gift Card',
-    //       route: '/gift',
-    //     },
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/users.svg',
-    //       label: 'Users',
-    //       route: '/users',
-    //     },
-    //   ],
-    // },
-    // {
-    //   group: 'Config',
-    //   separator: false,
-    //   items: [
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/lock-closed.svg',
-    //       label: 'Auth',
-    //       route: '/auth',
-    //       children: [
-    //         { label: 'Sign up', route: '/auth/sign-up' },
-    //         { label: 'Sign in', route: '/auth/sign-in' },
-    //         { label: 'Forgot Password', route: '/auth/forgot-password' },
-    //         { label: 'New Password', route: '/auth/new-password' },
-    //         { label: 'Two Steps', route: '/auth/two-steps' },
-    //       ],
-    //     },
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/exclamation-triangle.svg',
-    //       label: 'Errors',
-    //       route: '/errors',
-    //       children: [
-    //         { label: '404', route: '/errors/404' },
-    //         { label: '500', route: '/errors/500' },
-    //       ],
-    //     },
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/cube.svg',
-    //       label: 'Components',
-    //       route: '/components',
-    //       children: [{ label: 'Table', route: '/components/table' }],
-    //     },
-    //   ],
-    // },
-    // {
-    //   group: 'Config',
-    //   separator: false,
-    //   items: [
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/cog.svg',
-    //       label: 'Settings',
-    //       route: '/settings',
-    //     },
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/bell.svg',
-    //       label: 'Notifications',
-    //       route: '/gift',
-    //     },
-    //     {
-    //       icon: 'assets/icons/heroicons/outline/folder.svg',
-    //       label: 'Folders',
-    //       route: '/folders',
-    //       children: [
-    //         { label: 'Current Files', route: '/folders/current-files' },
-    //         { label: 'Downloads', route: '/folders/download' },
-    //         { label: 'Trash', route: '/folders/trash' },
-    //       ],
-    //     },
-    //   ],
-    // },
+    {
+      group: 'خرید و فروش ارز',
+      separator: true,
+      items: [
+        {
+          icon: '/assets/icons/material-icons/outline/folders.svg',
+          label: 'پروژه ها',
+          route: '/project',
+        },
+      ],
+    },
+    {
+      group: '',
+      separator: true,
+      items: [
+        {
+          icon: '/assets/icons/material-icons/outline/transfer.svg',
+          label: 'انتقال',
+          route: '/financial/transfer',
+        },
+      ],
+    },
+    {
+      group: '',
+      separator: true,
+      items: [
+        {
+          icon: '/assets/icons/material-icons/outline/hand-money.svg',
+          label: 'دریافت',
+          route: '/financial/receive',
+        },
+        {
+          icon: '/assets/icons/material-icons/outline/wallet.svg',
+          label: ' پرداخت',
+          route: '/financial/pay',
+        },
+      ],
+    },
+    {
+      group: '',
+      separator: true,
+      items: [
+        {
+          icon: '/assets/icons/material-icons/outline/receipt.svg',
+          label: 'صورتحساب تمدید پنل',
+          route: '/financial/panel-renewal',
+        },
+      ],
+    },
+    {
+      group: '  ارتباط با پشتیبانی',
+      separator: true,
+      items: [
+        // {
+        //   icon: 'assets/icons/material-icons/outline/clipboard.svg',
+        //   label: 'گزارش ها',
+        //   route: '/reports',
+        // },
+        {
+          icon: 'assets/icons/font-awesome/outline/comment.svg',
+          label: 'ارتباط با پشتیبانی',
+          route: '/contact/support',
+        },
+      ],
+    },
+
+    {
+      group: 'تنظیمات',
+      separator: false,
+      items: [
+        {
+          icon: 'assets/icons/heroicons/outline/cog.svg',
+          label: 'تنظیمات',
+          route: '/settings',
+        },
+      ],
+    },
+    {
+      group: '',
+      separator: false,
+      selected: true,
+      items: [
+        {
+          label: 'خروج',
+          // icon: 'assets/icons/heroicons/outline/power.svg',
+          route: '/logout',
+        },
+      ],
+    },
   ];
 }

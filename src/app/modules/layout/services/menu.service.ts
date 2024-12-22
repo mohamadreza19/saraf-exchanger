@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Menu } from 'src/app/core/constants/menu';
-import { MenuItem, SubMenuItem } from 'src/app/core/models/menu.model';
+import { MenuItem, SubMenuItem, SubMenuItemShortcut } from 'src/app/core/models/menu.model';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +46,33 @@ export class MenuService implements OnDestroy {
   }
   get pagesMenu() {
     return this._pagesMenu();
+  }
+  get allInPageInLinearArray() {
+    return this.getFlatSubMenuItems();
+  }
+
+  private getFlatSubMenuItems() {
+    let allInArray: SubMenuItemShortcut[] = [];
+
+    for (let item of Menu.pages) {
+      for (let subMenuItem of item.items) {
+        if (!subMenuItem.children) {
+          const { icon, label, route } = subMenuItem;
+          allInArray.push({ icon, label, route });
+        } else loopChildren(subMenuItem.children, allInArray);
+      }
+    }
+
+    function loopChildren(children: SubMenuItem[], arrayToPush: SubMenuItemShortcut[]) {
+      for (let item of children) {
+        if (!item.children) {
+          const { icon, label, route } = item;
+          arrayToPush.push({ icon, label, route });
+        } else loopChildren(item.children, arrayToPush);
+      }
+    }
+
+    return allInArray;
   }
 
   set showSideBar(value: boolean) {

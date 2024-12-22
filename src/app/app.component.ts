@@ -4,13 +4,16 @@ import { RouterOutlet } from '@angular/router';
 import { DOCUMENT, NgClass } from '@angular/common';
 import { ResponsiveHelperComponent } from './shared/components/responsive-helper/responsive-helper.component';
 import { NgxSonnerToaster } from 'ngx-sonner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [NgClass, RouterOutlet, ResponsiveHelperComponent, NgxSonnerToaster],
+  imports: [NgClass, RouterOutlet, ResponsiveHelperComponent, NgxSonnerToaster, MatDialogModule, HttpClientModule],
 })
 export class AppComponent {
   title = 'Angular Tailwind';

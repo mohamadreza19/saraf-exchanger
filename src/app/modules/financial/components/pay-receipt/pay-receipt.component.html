@@ -1,0 +1,90 @@
+<div class="container">
+  @if (control.value) {
+  <div class="flex flex-col gap-2 py-2">
+    <!-- Iterate through checkBookList -->
+    <ul class="rounded-md border border-border">
+      <!-- Header for each receiveTotalPaymentMethod -->
+
+      <!-- Reusable List Item Template -->
+      <!-- currencyUnit -->
+      <ng-container
+        *ngTemplateOutlet="listItem; context: { label: 'واحد پول', value: receiveTotalPaymentMethod.currencyUnit }">
+      </ng-container>
+      <!-- creditPayment -->
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: {
+            label: 'پرداخت از اعتبار',
+            value: receiveTotalPaymentMethod.creditPayment | currency: '':'':'1.0-0'
+          }
+        ">
+      </ng-container>
+      <!-- cashPayment -->
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: { label: 'مبلغ نقدی', value: receiveTotalPaymentMethod.cashPayment | currency: '':'':'1.0-0' }
+        ">
+      </ng-container>
+      <!-- customerSystemPayment -->
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: {
+            label: 'پرداخت از سیستم مشتری',
+            value: receiveTotalPaymentMethod.customerSystemPayment | currency: '':'':'1.0-0'
+          }
+        ">
+      </ng-container>
+      <!-- checkbooksAmounts -->
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: {
+            label: 'جمع مبلغ چک‌ها',
+            value: receiveTotalPaymentMethod.checkbooksAmounts | currency: '':'':'1.0-0'
+          }
+        ">
+      </ng-container>
+      <!-- amountPayable -->
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: {
+            label: 'مبلغ قابل پرداخت',
+            value: receiveTotalPaymentMethod.amountPayable | currency: '':'':'1.0-0'
+          }
+        ">
+      </ng-container>
+      <!-- residualAmount -->
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: { label: 'مانده', value: receiveTotalPaymentMethod.residualAmount | currency: '':'':'1.0-0' }
+        ">
+      </ng-container>
+    </ul>
+  </div>
+
+  <!-- Total Check Amount -->
+  <!-- <div
+        class="flex justify-between border-t border-border p-2 font-light text-muted-foreground">
+        <p class="text-xl font-bold">جمع مبلغ چک ها:</p>
+        <p class="text-lg font-bold">
+          {{ calculateAllCheckbookAmounts() | currency:'' :'':'1.0-0' }}
+        </p>
+      </div> -->
+  } @else {
+  <!-- No Checkbooks Found -->
+  <p class="w-full py-5 text-center text-red-400">لطفا یک مورد از روش های پرداخت را انتخاب کنید</p>
+  }
+</div>
+
+<!-- Reusable List Item Template -->
+<ng-template #listItem let-label="label" let-value="value">
+  <li class="my-1 flex justify-between p-3">
+    <section class="font-light text-muted-foreground">{{ label }}:</section>
+    <section style="direction: ltr" class="font-bold text-muted-foreground">{{ value }}</section>
+  </li>
+</ng-template>

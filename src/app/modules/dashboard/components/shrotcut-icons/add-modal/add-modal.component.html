@@ -1,0 +1,10 @@
+<div class="w-full overflow-auto p-4">
+  <div class="border-b border-border pb-4">
+    <p class="text-lg">انتخاب آیکن میانبر</p>
+  </div>
+  <div class="flex max-h-[600px] flex-wrap justify-center gap-2 pt-5 scrollbar-thin">
+    <div *ngFor="let shortcut of data.shortcuts; index as i" (click)="data.handleSelect(shortcut, i)">
+      <app-shortcut [subMenu]="shortcut"></app-shortcut>
+    </div>
+  </div>
+</div>

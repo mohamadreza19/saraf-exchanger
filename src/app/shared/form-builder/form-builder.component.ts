@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModu
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { InputComponent } from '../components/input/input.component';
 import { ButtonComponent } from '../components/button/button.component';
+import { FormControl2 } from '../components/form-builder2/form-builder2.component';
 
 @Component({
   selector: 'app-form-builder',
@@ -51,7 +52,7 @@ export class FormBuilderComponent implements AfterViewChecked {
     //   },
     // };
   }
-  _getFormControllers(obj: any): CustomFormControl[] {
+  _getFormControllers(obj: any): FormControl2[] {
     return Object.values(obj);
   }
   _getControlType(control: AbstractControl<any, any> | null): FormControl {
@@ -91,7 +92,7 @@ export class CustomFormControl extends FormControl {
   label?: string;
   allowedFileTypes?: FileType[];
   filesLength?: number;
-  showIf?: string[];
+
   options?: string[];
   selectedOptionIndex?: number;
   constructor(formState: any, inputConf: FormInput) {
@@ -105,18 +106,20 @@ export class CustomFormControl extends FormControl {
 
     this.options = inputConf.options;
     this.selectedOptionIndex = inputConf.selectedOptionIndex;
-
-    this.showIf = inputConf.showIf;
   }
 }
 
 export class CustomFormGroup extends FormGroup {
   rootLabel?: string;
   submitText?: string;
-  constructor(controls: any, rootLabel?: string, submitText?: string) {
+
+  _onSubmit?: (form: this) => void;
+  constructor(controls: any, rootLabel?: string, submitText?: string, _onSubmit?: (form: CustomFormGroup) => void) {
     super(controls);
 
     this.rootLabel = rootLabel;
     this.submitText = submitText;
+
+    this._onSubmit = _onSubmit || function () {};
   }
 }

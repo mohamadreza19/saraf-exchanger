@@ -8,6 +8,8 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { GlobalI18NextPipe } from './app/shared/pipes/global-i18next.pipe';
 
+import { provideTippyLoader, provideTippyConfig, tooltipVariation, popperVariation } from '@ngneat/helipopper/config';
+
 if (environment.production) {
   enableProdMode();
   //show this warning only on prod mode
@@ -17,7 +19,20 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserModule, AppRoutingModule), provideAnimations()],
+  providers: [
+    importProvidersFrom(BrowserModule, AppRoutingModule),
+    provideAnimations(),
+
+    //
+    provideTippyLoader(() => import('tippy.js')),
+    provideTippyConfig({
+      defaultVariation: 'tooltip',
+      variations: {
+        tooltip: tooltipVariation,
+        popper: popperVariation,
+      },
+    }),
+  ],
 }).catch((err) => console.error(err));
 
 function selfXSSWarning() {

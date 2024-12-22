@@ -6,7 +6,7 @@ import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NavbarDateStatusComponent } from './navbar-date-status/navbar-date-status.component';
 import { NavbarNotificationComponent } from './navbar-notification/navbar-notification.component';
-import { BaseCurrencyComponent } from './base-currency/base-currency.component';
+import { RenewalComponent } from './renewal/renewal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +20,8 @@ import { BaseCurrencyComponent } from './base-currency/base-currency.component';
     NavbarMobileComponent,
     NavbarDateStatusComponent,
     NavbarNotificationComponent,
-    BaseCurrencyComponent,
+
+    RenewalComponent,
   ],
 })
 export class NavbarComponent implements OnInit {

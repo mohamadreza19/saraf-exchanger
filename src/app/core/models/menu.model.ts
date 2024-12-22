@@ -14,3 +14,8 @@ export interface SubMenuItem {
   active?: boolean;
   children?: Array<SubMenuItem>;
 }
+export interface SubMenuItemShortcut {
+  icon?: string;
+  label?: string;
+  route?: string | null;
+}

@@ -165,6 +165,15 @@
     vite "5.3.2"
     watchpack "2.4.1"
 
+"@angular/cdk@^19.0.2":
+  version "19.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-19.0.2.tgz#0529cd283879950366236562502ef63d750b8641"
+  integrity sha512-eDjHJJWpgnzC3pR6N0gCdh51Q1ffoh6mql06YSqprj005aNKBjmCMnpU4bPPzdGSkKsjwAZWGUNWg4RS+R+iZQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^7.1.2"
+
 "@angular/cli@^18.1.0":
   version "18.1.0"
   resolved "https://registry.npmjs.org/@angular/cli/-/cli-18.1.0.tgz"
@@ -227,6 +236,13 @@
   version "18.1.0"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-18.1.0.tgz"
   integrity sha512-m+7m9wa+n5dEacd458eSZsZTz0B+HbOtr7/uqM0YTMQaPrhwl1epG5Y103mB6yr00JiJcLNlPLjP888cHFjldQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@angular/material@^19.0.2":
+  version "19.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-19.0.2.tgz#c6aeaa31dbd3f9dfa9e3d0ec87651b283704e573"
+  integrity sha512-IKU6znBKgD0xHEGo5WD3JWNK+WjamMCzAvSa72w4Evo2N6PWN+dAkbCMYxugW7dOfwoT8DvUnjIWclC+RRCl0A==
   dependencies:
     tslib "^2.3.0"
 
@@ -1722,6 +1738,36 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.3.tgz#0aa5502d547b57abfc4ac492de68e2006e417242"
   integrity sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==
 
+"@ng-icons/core@^29.10.0":
+  version "29.10.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/core/-/core-29.10.0.tgz#04f98a8ac2bba77d263cc1864e5a6ae0f00c5935"
+  integrity sha512-PR6SO00yvFhwDhh37BWhtAgRfzxuXpJQBsAQ44Pg3gjc83fOAwOtMSXizYwtN0uUFIkAYZHZCEuV7Sb8eosK+w==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ng-icons/material-icons@^29.10.0":
+  version "29.10.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/material-icons/-/material-icons-29.10.0.tgz#bdfdea22114e1e21c71cbd18534cb4985ad2d443"
+  integrity sha512-zmOJQeDpCoISxmmlzYbBMwHrmMz4RnT0UNOxWbfSSlgU8+XTHUUbVomS72ltFkkgY/rt5VF8rnp2ILmmDeZZWA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngneat/helipopper@^10.2.0-alpha.0":
+  version "10.2.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/helipopper/-/helipopper-10.2.0-alpha.0.tgz#4b87d4bf707c8ba5cf0a23b178fe12269c1aae69"
+  integrity sha512-RZ1fF9DSSrBIUdlNeqwEf4sHf1C6WCh2vVUUNMrl1ozj6w+pNyGLzoP0rtLUGZ6Bmh1cYudnFXcQGkQNDEWDFg==
+  dependencies:
+    "@ngneat/overview" "^6.1.0"
+    tippy.js "6.3.7"
+    tslib "^2.3.0"
+
+"@ngneat/overview@^6.1.0":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@ngneat/overview/-/overview-6.1.1.tgz#e053a6c561fd386a595abfcd9d6b7be23bc401da"
+  integrity sha512-31gsEbSbLWTD/LD8KtUS2Qv+GVQS2pK00S9ZBP+pv2ZF1NIfwHjXs8fey8TQN1QuKPLa510YYN3rEwyP57UCfw==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@18.1.0":
   version "18.1.0"
   resolved "https://registry.npmjs.org/@ngtools/webpack/-/webpack-18.1.0.tgz"
@@ -1841,6 +1887,11 @@
   integrity sha512-Gq9rmS54mjBL/7/MvBaNOBwbfnh7beHvS6oS4srqXFcQHpQCV1+c8JXWE8VLPyRDhgS3H8x8A7hztqI9VnwrAQ==
   dependencies:
     playwright "1.42.1"
+
+"@popperjs/core@^2.9.0":
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
 "@rollup/rollup-android-arm-eabi@4.18.0":
   version "4.18.0"
@@ -2511,6 +2562,13 @@ angular-ng-stepper@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/angular-ng-stepper/-/angular-ng-stepper-2.0.0.tgz#dd883219b184b7d15ff8a259becc60be1865eb1b"
   integrity sha512-nGjktQZlgKq3eZje5xPPk3Fo6ChnQkqEQ0D9uuTATo59BfXVilTdmfmlM7JVUbE3AG3tBqpOMwLdF1SSAHu5cA==
+  dependencies:
+    tslib "^2.3.0"
+
+angular-phone-number-input@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/angular-phone-number-input/-/angular-phone-number-input-1.0.7.tgz#0c897d4a5f14098a3c52242dd0d6bd28069ddf38"
+  integrity sha512-/N4HFMLkDC/S1dNVOdfGnzCGmt9ByPa7Gl//7KkeyUFzAIe+359Io1bg0nCo3wyW+/QqvcLadLXSuNMG6UPo2Q==
   dependencies:
     tslib "^2.3.0"
 
@@ -3229,6 +3287,16 @@ cosmiconfig@^9.0.0:
     js-yaml "^4.1.0"
     parse-json "^5.2.0"
 
+countries-list@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/countries-list/-/countries-list-3.1.1.tgz#f3a339a06228ff053c0e8e44f17fa5ad4f3cab58"
+  integrity sha512-nPklKJ5qtmY5MdBKw1NiBAoyx5Sa7p2yPpljZyQ7gyCN1m+eMFs9I6CT37Mxt8zvR5L3VzD3DJBE4WQzX3WF4A==
+
+country-flag-icons@^1.5.13:
+  version "1.5.13"
+  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.5.13.tgz#963596b7fca6602b4b389a4e7b711ef3f33cc0b1"
+  integrity sha512-4JwHNqaKZ19doQoNcBjsoYA+I7NqCH/mC/6f5cBWvdKzcK5TMmzLpq3Z/syVHMHJuDGFwJ+rPpGizvrqJybJow==
+
 create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
@@ -3593,7 +3661,7 @@ ent@~2.2.0:
   resolved "https://registry.npmjs.org/ent/-/ent-2.2.0.tgz"
   integrity sha1-6WQhkyWiHQX0RGai9obtbOX13R0=
 
-entities@^4.2.0, entities@^4.3.0, entities@^4.4.0:
+entities@^4.2.0, entities@^4.3.0, entities@^4.4.0, entities@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
@@ -4165,6 +4233,11 @@ globby@^14.0.0:
     path-type "^5.0.0"
     slash "^5.1.0"
     unicorn-magic "^0.1.0"
+
+google-libphonenumber@^3.2.40:
+  version "3.2.40"
+  resolved "https://registry.yarnpkg.com/google-libphonenumber/-/google-libphonenumber-3.2.40.tgz#ed57d0db67a8745e8e6db7983dda7f94717fb4c9"
+  integrity sha512-bzGxX/vfggcV80LVcibki+JvR91x6zHpBpovDXSfmZUGn6uLzhbYXsWll2a80EG6qTmvf8lt7KZZ/pkMml8ckw==
 
 gopd@^1.0.1:
   version "1.0.1"
@@ -4940,6 +5013,11 @@ less@4.2.0:
     needle "^3.1.0"
     source-map "~0.6.0"
 
+libphonenumber-js@^1.11.16:
+  version "1.11.16"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.11.16.tgz#3aa64a8a95ffc59253a5df3009940a9604a02102"
+  integrity sha512-Noyazmt0yOvnG0OeRY45Cd1ur8G7Z0HWVkuCuKe+yysGNxPQwBAODBQQ40j0AIagi9ZWurfmmZWNlpg4h4W+XQ==
+
 license-webpack-plugin@4.0.2:
   version "4.0.2"
   resolved "https://registry.npmjs.org/license-webpack-plugin/-/license-webpack-plugin-4.0.2.tgz"
@@ -5476,10 +5554,24 @@ ng2-pdf-viewer@^10.3.4:
     pdfjs-dist "4.6.82"
     tslib "^2.3.0"
 
+ngx-bootstrap@^18.1.3:
+  version "18.1.3"
+  resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-18.1.3.tgz#dd8183330f0e5ae43bc3e222d0b53c1f62c614ff"
+  integrity sha512-wSaofPv8UZKVNqm11+PQ6pD9KYRijqOyI4PE9Q8XgxJe18qNtyXnqHhEk1y0zC+jgX/mTFBexkskFWzADoopHw==
+  dependencies:
+    tslib "^2.3.0"
+
 ngx-file-drop@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/ngx-file-drop/-/ngx-file-drop-16.0.0.tgz#3f6cb74b5bfee0d7bcd76635c7120d36fa64ff62"
   integrity sha512-33RPoZBAiMkV110Rzu3iOrzGcG5M20S4sAiwLzNylfJobu9qVw5XR83FhUelSeqJRoaDxXBRKAozYCSnUf2CNw==
+  dependencies:
+    tslib "^2.3.0"
+
+ngx-intl-tel-input@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/ngx-intl-tel-input/-/ngx-intl-tel-input-3.2.0.tgz#c2d8dc683408b550d5ba571df633890294ee33c8"
+  integrity sha512-TM3R0Az+F63eNCBj+NpR6UzJYg4FkHxDrS2hfeFoHJymMc4+DlqB581g4tPil4IkMetlR+jaAtEcqKiqmYGYlw==
   dependencies:
     tslib "^2.3.0"
 
@@ -5865,6 +5957,13 @@ parse5@^7.0.0:
   integrity sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==
   dependencies:
     entities "^4.4.0"
+
+parse5@^7.1.2:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-7.2.1.tgz#8928f55915e6125f430cc44309765bf17556a33a"
+  integrity sha512-BuBYQYlv1ckiPdQi/ohiivi9Sagc9JG+Ozs0r7b/0iK3sKmrb0b9FdWdBbOdx6hBCM/F9Ir82ofnBhtZOjCRPQ==
+  dependencies:
+    entities "^4.5.0"
 
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
@@ -7163,6 +7262,13 @@ thunky@^1.0.2:
   version "1.1.0"
   resolved "https://registry.npmjs.org/thunky/-/thunky-1.1.0.tgz"
   integrity sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==
+
+tippy.js@6.3.7:
+  version "6.3.7"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.3.7.tgz#8ccfb651d642010ed9a32ff29b0e9e19c5b8c61c"
+  integrity sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==
+  dependencies:
+    "@popperjs/core" "^2.9.0"
 
 tmp@^0.0.33:
   version "0.0.33"

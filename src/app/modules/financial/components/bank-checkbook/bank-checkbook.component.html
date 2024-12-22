@@ -1,0 +1,57 @@
+<div class="w-full rounded-md border border-border p-1">
+  <div
+    class="relative flex items-center justify-between border-b border-border p-2 pt-3 text-center text-muted-foreground">
+    <p class="text-nowrap">ورودی چک‌ها</p>
+    <app-button (buttonClick)="openModal()" impact="bold">افزودن چک</app-button>
+  </div>
+
+  <!-- List -->
+  @if(controlVal.length){
+  <div class="flex flex-col gap-2 py-2">
+    <ul *ngFor="let checkbook of controlVal; index as i" class="p-2">
+      <!-- Reusable template for list items -->
+      <div class="relative mb-2 bg-muted py-2 text-center text-lg font-bold text-muted-foreground">
+        <div>
+          چک شماره
+
+          {{ i + 1 }}
+        </div>
+        <div (click)="handleRemoveCheckBook(i)" class="absolute start-2 top-0 cursor-pointer text-lg font-bold">x</div>
+      </div>
+
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: { label: 'شماره چک', value: checkbook.bankCheckbookNumber }
+        "></ng-container>
+      <ng-container
+        *ngTemplateOutlet="listItem; context: { label: 'نام بانک', value: checkbook.bankName }"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          listItem;
+          context: { label: 'مبلغ چک', value: checkbook.checkAmount | currency: ' ':'symbol':'1.0-0' }
+        "></ng-container>
+      <ng-container
+        *ngTemplateOutlet="listItem; context: { label: 'واحد پول', value: checkbook.currencyUnit }"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="listItem; context: { label: 'توضیحات', value: checkbook.description }"></ng-container>
+    </ul>
+  </div>
+  <div class="flex justify-between border-t border-border p-2 font-light text-muted-foreground">
+    <p class="text-xl font-bold">جمع مبلغ چک ها:</p>
+    <p class="text-lg font-bold">
+      {{ calculateAllCheckbookAmounts() | currency: ' ':'symbol':'1.0-0' }}
+    </p>
+  </div>
+  } @else {
+  <p class="w-full py-5 text-center text-red-400">چکی یافت نشد!!</p>
+  }
+</div>
+
+<!-- Define reusable ng-template -->
+<ng-template #listItem let-label="label" let-value="value">
+  <li class="my-1 flex justify-between">
+    <section class="text-muted-foreground">{{ label }}:</section>
+    <section class="text-sm font-light text-muted-foreground">{{ value }}</section>
+  </li>
+</ng-template>

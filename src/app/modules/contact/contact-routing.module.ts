@@ -10,11 +10,11 @@ const routes: Routes = [
     component: ContactComponent,
     children: [
       {
-        path: 'customer',
+        path: 'support',
         component: ContactCustomerComponent,
       },
       {
-        path: 'customer/add',
+        path: 'support/add',
         component: ContactCustomerMutateComponent,
       },
     ],

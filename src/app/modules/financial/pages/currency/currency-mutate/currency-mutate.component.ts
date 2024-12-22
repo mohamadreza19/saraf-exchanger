@@ -4,11 +4,15 @@ import {
   CustomFormGroup,
   FormBuilderComponent,
 } from 'src/app/shared/form-builder/form-builder.component';
+import {
+  FormBuilder2Component,
+  FormControl2,
+} from '../../../../../shared/components/form-builder2/form-builder2.component';
 
 @Component({
   selector: 'app-currency-mutate',
   standalone: true,
-  imports: [FormBuilderComponent],
+  imports: [FormBuilderComponent, FormBuilder2Component],
   templateUrl: './currency-mutate.component.html',
 })
 export class CurrencyMutateComponent {
@@ -16,36 +20,37 @@ export class CurrencyMutateComponent {
 
   constructor() {
     const controls = {
-      name: new CustomFormControl('', {
+      name: new FormControl2('', {
         type: 'text',
         label: 'نام',
-        showIf: [],
+
         validators: [],
       }),
-      logo: new CustomFormControl([], {
-        type: 'files',
-        filesLength: 1,
-        label: 'لوگو',
-        allowedFileTypes: ['jpeg', 'png'],
-        validators: [],
-        showIf: [],
-      }),
-      acronym: new CustomFormControl('', {
+      // logo: new CustomFormControl([], {
+      //   type: 'files',
+      //   filesLength: 1,
+      //   label: 'لوگو',
+      //   allowedFileTypes: ['jpeg', 'png'],
+      //   validators: [],
+      //   showIf: [],
+      // }),
+      acronym: new FormControl2('', {
         type: 'text',
-        label: 'اختصار',
-        showIf: [],
+        label: 'کد ارز',
+
         validators: [],
       }),
-      baseCurrency: new CustomFormControl('', {
+      baseCurrency: new FormControl2('', {
         type: 'text',
-        label: 'ارز پایه',
-        showIf: [],
+        label: 'عنوان مستعار ارز',
+
         validators: [],
       }),
-      rateToBaseCurrency: new CustomFormControl('', {
-        type: 'text',
-        label: 'ضریب نسبت به ارز مبنا',
-        showIf: [],
+      rateToBaseCurrency: new FormControl2('', {
+        type: 'select',
+        label: 'ترتیب نمایش',
+        options: ['فعال', 'غیرفعال'],
+
         validators: [],
       }),
     };

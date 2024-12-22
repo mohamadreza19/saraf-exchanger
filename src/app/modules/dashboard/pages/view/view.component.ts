@@ -9,6 +9,15 @@ import { Employ } from '../../models/Employ';
 import { Currency } from '../../models/Currency';
 import { ExchangeBills } from '../../models/Exchange‌‌Bills';
 import { MapComponent } from '../../components/map/map.component';
+import { InputComponent } from '../../../../shared/components/input/input.component';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { SearchComponent } from '../../components/search/search.component';
+import { ModalService } from 'src/app/core/services/modal.service';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { SearchModalComponent } from 'src/app/shared/components/modals/search-modal/search-modal.component';
+import { ShrotcutIconsComponent } from '../../components/shrotcut-icons/shrotcut-icons.component';
+import { TippyDirective } from '@ngneat/helipopper';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-view',
@@ -20,6 +29,13 @@ import { MapComponent } from '../../components/map/map.component';
     ExchangeTableComponent,
     NgClass,
     MapComponent,
+    InputComponent,
+    AngularSvgIconModule,
+    SearchComponent,
+    ShrotcutIconsComponent,
+    TippyDirective,
+    ButtonComponent,
+    RouterLink,
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss',
@@ -49,7 +65,7 @@ export class ViewComponent {
   table4ForbiddenKeysInItem: string[] = [];
   table4IconsUrl!: string[];
 
-  constructor() {
+  constructor(private modalService: ModalService) {
     this.table1Keys = ['اسم', 'کشور', 'وضعیت', 'تاریخ انقضاء', 'ID'];
     this.table1Body = [
       {
@@ -114,5 +130,9 @@ export class ViewComponent {
         issueDate: '1403/12/12',
       },
     ];
+  }
+
+  openModal() {
+    this.modalService.open(SearchModalComponent);
   }
 }

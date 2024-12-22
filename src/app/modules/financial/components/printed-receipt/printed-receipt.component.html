@@ -1,0 +1,9 @@
+<div class="flex w-[600px] flex-col gap-5 p-5">
+  <div class="border-b border-border pb-2 text-lg font-light text-muted-foreground">
+    <p>رسید چاپ شده</p>
+  </div>
+  <div class="flex w-full flex-col gap-5">
+    <img [src]="imagePath" class="w-full rounded-md" />
+    <app-button (buttonClick)="downloadImage()"> دریافت رسید</app-button>
+  </div>
+</div>

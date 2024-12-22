@@ -1,0 +1,21 @@
+<div class="relative flex items-center rounded-md bg-card p-1">
+  <section class="flex cursor-default items-center text-muted-foreground">
+    <p class="text-xs font-bold">مدت اعتبار</p>
+    <span class="mx-1">:</span>
+  </section>
+
+  <section class="flex cursor-pointer items-center gap-1 rounded-sm bg-card p-1 text-border">
+    <p class="text-xl font-semibold text-muted-foreground">100 روز</p>
+  </section>
+  <app-button (buttonClick)="openModal()"> تمدید </app-button>
+
+  <!-- <div *ngIf="showSelectBox" class="absolute start-0 top-[110%] flex w-full flex-col bg-border p-1 pb-0">
+    <section
+      *ngFor="let baseCurrency of items"
+      (click)="handleSelect(baseCurrency)"
+      class="bg flex cursor-pointer items-center gap-2 border-b border-b-muted p-3">
+      <img [src]="baseCurrency.logo" class="h-6 w-6 rounded-sm" />
+      <p class="text-xl text-muted-foreground">{{ baseCurrency.value }}</p>
+    </section>
+  </div> -->
+</div>

@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  CustomFormControl,
-  CustomFormGroup,
-  FormBuilderComponent,
-} from '../../../../../shared/form-builder/form-builder.component';
+import { CustomFormGroup, FormBuilderComponent } from '../../../../../shared/form-builder/form-builder.component';
+import { FormControl2 } from 'src/app/shared/components/form-builder2/form-builder2.component';
 
 @Component({
   selector: 'app-contact-customer-mutate',
@@ -17,49 +14,49 @@ export class ContactCustomerMutateComponent {
 
   constructor() {
     const controls = {
-      userType: new CustomFormControl('', {
+      userType: new FormControl2('', {
         label: 'انتخاب مخاطب',
         type: 'select',
         options: ['همه کارمندان', ' همه صرافی ها', 'انتخاب کارمند', 'انتخاب صراف'],
         selectedOptionIndex: 0,
-        showIf: [],
+
         validators: [],
       }),
-      files: new CustomFormControl([], {
+      files: new FormControl2([], {
         label: 'بارگزاری فایل',
         type: 'files',
         filesLength: 1,
         allowedFileTypes: ['jpeg', 'jpg', 'png'],
-        showIf: [],
-        validators: [],
-      }),
-      employee: new CustomFormControl('', {
-        label: 'انتخاب کارمند',
-        type: 'multi-select',
-        options: ['علی رضایی', 'رضا مرادی'],
-        showIf: ['userType', 'انتخاب کارمند'],
-        validators: [],
-      }),
-      exchangeOffice: new CustomFormControl('', {
-        label: 'انتخاب صراف',
-        type: 'multi-select',
-        options: ['نوا ', 'تبدیل'],
-        showIf: ['userType', 'انتخاب صراف'],
-        validators: [],
-      }),
 
-      subject: new CustomFormControl('', {
+        validators: [],
+      }),
+      // employee: new FormControl2('', {
+      //   label: 'انتخاب کارمند',
+      //   type: 'multi-select',
+      //   options: ['علی رضایی', 'رضا مرادی'],
+      //   showIf: ['userType', 'انتخاب کارمند'],
+      //   validators: [],
+      // }),
+      // exchangeOffice: new FormControl2('', {
+      //   label: 'انتخاب صراف',
+      //   type: 'multi-select',
+      //   options: ['نوا ', 'تبدیل'],
+      //   showIf: ['userType', 'انتخاب صراف'],
+      //   validators: [],
+      // }),
+
+      subject: new FormControl2('', {
         label: 'موضوع',
         type: 'text',
         options: [],
-        showIf: [],
+
         validators: [],
       }),
-      priority: new CustomFormControl('', {
+      priority: new FormControl2('', {
         label: 'درجه اهمیت',
         type: 'select',
         options: ['بالا', 'متوسط', 'کم'],
-        showIf: [],
+
         validators: [],
       }),
     };

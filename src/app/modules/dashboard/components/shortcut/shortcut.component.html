@@ -1,0 +1,5 @@
+<section
+  class="flex h-36 w-36 cursor-pointer flex-col flex-wrap items-center justify-center gap-2 rounded-md border border-border bg-background">
+  <img *ngIf="subMenu.icon" class="block h-8 w-8" [src]="subMenu.icon" />
+  <p *ngIf="subMenu.label" class="px-1 text-center text-sm font-bold">{{ subMenu.label }}</p>
+</section>

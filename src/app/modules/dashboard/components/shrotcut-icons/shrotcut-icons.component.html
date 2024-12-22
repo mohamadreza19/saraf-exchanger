@@ -1,0 +1,34 @@
+<section
+  (click)="openModal()"
+  class="flex h-36 w-36 cursor-pointer flex-col items-center justify-center rounded-md bg-background">
+  <svg-icon
+    class="block h-fit w-fit"
+    svgClass="w-14 h-14 fill-muted-foreground"
+    src="/assets/icons/material-icons/outline/add.svg"></svg-icon>
+  <p class="text-lg font-bold">افرودن</p>
+</section>
+
+@if(!selectedShortcuts.length){
+<section class="h-36 w-36 rounded-md bg-background"></section>
+
+} @else {
+<section class="relative" *ngFor="let selectedShortcut of selectedShortcuts; index as i">
+  <span
+    (click)="handleRemoveShortcut($event, i)"
+    class="absolute -start-1 -top-1 z-[2] flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-border text-lg font-bold text-muted-foreground"
+    >x</span
+  >
+  <a
+    [routerLink]="[selectedShortcut.route]"
+    class="relative flex h-36 w-36 cursor-pointer flex-col items-center justify-center rounded-md bg-background">
+    <ng-container *ngIf="selectedShortcut.icon">
+      <svg-icon
+        class="block h-fit w-fit"
+        svgClass="w-14 h-14 fill-muted-foreground"
+        [src]="selectedShortcut.icon"></svg-icon>
+    </ng-container>
+    <p class="text-lg font-bold">{{ selectedShortcut.label }}</p>
+  </a>
+</section>
+
+}

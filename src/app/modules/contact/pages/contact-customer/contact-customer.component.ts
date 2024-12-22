@@ -8,6 +8,7 @@ import { TableConfig } from 'src/app/shared/models/table-config';
 import { CustomFormControl } from 'src/app/shared/form-builder/form-builder.component';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { FormControl2 } from 'src/app/shared/components/form-builder2/form-builder2.component';
 const logo =
   'https://daftarensha.ir/wp-content/uploads/2024/09/%D9%BE%D8%B3%D8%B1-%D8%A8%DA%86%D9%87-%D8%AE%D9%88%D8%B4%DA%AF%D9%84-%D8%A8%D8%B1%D8%A7%DB%8C-%D9%BE%D8%B1%D9%88%D9%81%D8%A7%DB%8C%D9%84-.jpeg';
 @Component({
@@ -49,30 +50,29 @@ export class ContactCustomerComponent {
   ];
   constructor(private router: Router) {
     const controls = {
-      seach: new CustomFormControl(null, {
+      seach: new FormControl2(null, {
         label: 'جستوجو',
-        showIf: [],
+
         type: 'search',
         validators: [],
       }),
-      priority: new CustomFormControl(null, {
+      priority: new FormControl2(null, {
         label: 'الویت',
         options: ['مهم', 'متوسط'],
-        showIf: [],
+
         type: 'select',
         validators: [],
       }),
-      sort: new CustomFormControl(null, {
+      sort: new FormControl2(null, {
         type: 'checkbox',
         options: ['کارمند', ' صرافی'],
         label: '',
         validators: [],
-        showIf: [],
       }),
-      status: new CustomFormControl(null, {
+      status: new FormControl2(null, {
         label: 'وضعیت',
         options: ['پاسخ داده شد', 'پاسخ نشده'],
-        showIf: [],
+
         type: 'select',
         validators: [],
       }),
@@ -81,12 +81,13 @@ export class ContactCustomerComponent {
     this.tableConfig = {
       title: 'تیکت ها ',
       tableHeader: ['شماره تیکت', 'آواتار', 'نوع کاربر', ' درجه اهمیت', 'پاسخ', 'وضعیت'],
-      inputs: new FormGroup(controls),
+      form: new FormGroup(controls),
       tableBody: this.dummyData,
-      customStyleForVal: {
+      customStylePerColumnVal: {
         مهم: 'text-red-500 bg-red-100 rounded-lg p-1',
         متوسط: 'text-orange-500 bg-orange-100  rounded-lg p-1',
       },
+      actions: [],
       assetIndexFromBody: 1,
     };
   }

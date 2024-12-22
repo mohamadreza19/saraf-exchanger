@@ -1,12 +1,5 @@
-<div class="w-full">
+<div class="flex w-full flex-col gap-10">
   <app-header-buttons (primaryClick)="navigateToAddBank()" (lightClick)="navigateToDash()"></app-header-buttons>
 
-  <div
-    view-exchange-table
-    [label]="table1Label"
-    [body]="table1Body"
-    [showEdit]="true"
-    [keys]="table1Keys"
-    [itemIconUrls]="table1IconsUrl"
-    [forbiddenKeysInItem]="table1ForbiddenKeysInItem"></div>
+  <app-table1 [tableConfig]="tableConfig"></app-table1>
 </div>

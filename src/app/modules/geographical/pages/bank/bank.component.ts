@@ -3,45 +3,92 @@ import { HeaderButtonsComponent } from '../../../financial/components/header-but
 import { ExchangeTableComponent } from 'src/app/modules/dashboard/components/view/exchange-table/exchange-table.component';
 import { Router } from '@angular/router';
 import { Bank } from 'src/app/shared/models/bank-interface';
+import { TableConfig } from 'src/app/shared/models/table-config';
+import { CustomFormControl, CustomFormGroup } from 'src/app/shared/form-builder/form-builder.component';
+import { TableComponent } from '../../../../shared/components/tables/table/table.component';
 
 @Component({
   selector: 'app-bank',
   standalone: true,
-  imports: [HeaderButtonsComponent, ExchangeTableComponent],
+  imports: [HeaderButtonsComponent, ExchangeTableComponent, TableComponent],
   templateUrl: './bank.component.html',
 })
 export class BankComponent {
-  table1Label = 'لیست بانک ها';
-  table1Keys: string[];
-  table1Body: any[];
-  table1ForbiddenKeysInItem: string[];
-  table1IconsUrl!: string[];
+  tableConfig!: TableConfig;
 
   constructor(private router: Router) {
-    this.table1Keys = ['اسم', 'شهر', 'عنوان', 'وضعیت'];
-    this.table1Body = [
-      {
-        name: 'بانک ملی',
-        logo: 'https://bmi.ir/fa/uploadedfiles/dynamicpagesfiles/2019_10_26/logo__e53e707996__7b6ea8f7fb.jpg',
-        city: 'تهران',
-        title: 'بانک ملی ایران',
-        status: 'فعال',
+    this.tableConfig = {
+      title: 'بانک‌ها',
+      form: this.generateTableForm(),
+      tableHeader: ['نوع بانک', 'کشور', 'شهر', 'نام بانک', 'کد شعبه', 'نام شعبه', 'تلفن', 'آدرس', 'فعال / غیرفعال'],
+      tableBody: [
+        {
+          bankType: 'بانک رمز ارز',
+          country: 'ایران',
+          city: 'تهران',
+          bankName: 'بانک ملت',
+          branchCode: '001',
+          branchName: 'مرکزی',
+          phone: '021-12345678',
+          address: 'خیابان انقلاب، پلاک ۱۲۳',
+          isActive: 'فعال',
+        },
+        {
+          bankType: 'بانک شهری',
+          country: 'ایران',
+          city: 'بوشهر',
+          bankName: 'بانک صادرات',
+          branchCode: '002',
+          branchName: 'شعبه ساحلی',
+          phone: '077-98765432',
+          address: 'خیابان ساحل، پلاک ۴۵۶',
+          isActive: 'غیرفعال',
+        },
+      ],
+      customStylePerColumnVal: {
+        فعال: 'p-1 rounded-lg bg-primary text-background',
+        غیرفعال: 'p-1 rounded-lg bg-muted text-background',
       },
-      {
-        name: 'بانک توسعه',
-        logo: 'https://logoyab.com/wp-content/uploads/2024/08/Tosee-Taavon-Bank-Logo-1030x1030.png',
-        city: 'تهران',
-        title: 'بانک توسعه ',
-        status: 'فعال',
-      },
-    ];
-    this.table1ForbiddenKeysInItem = ['logo'];
-    this.table1IconsUrl = this.table1Body.map((item) => item.logo);
+      actions: [
+        {
+          callback: (row) => {},
+          label: 'ویرایش',
+          styleProps: {
+            tone: 'warning',
+          },
+        },
+      ],
+    };
   }
   navigateToAddBank() {
     this.router.navigate(['/geographical/bank/add']);
   }
   navigateToDash() {
     this.router.navigate(['/dashboard']);
+  }
+  generateTableForm() {
+    const controls = {
+      search: new CustomFormControl('', {
+        label: 'جستوجو',
+        type: 'search',
+
+        validators: [],
+      }),
+      bankType: new CustomFormControl('', {
+        type: 'select',
+        label: 'نوع بانک',
+        options: ['بانک رمز ارز', 'بانک شهری'],
+
+        validators: [],
+      }),
+      isActive: new CustomFormControl('', {
+        type: 'select',
+        label: 'وضعیت',
+        options: ['فعال', 'غیرفعال'],
+
+        validators: [],
+      }),
+    };
+    return new CustomFormGroup(controls);
   }
 }

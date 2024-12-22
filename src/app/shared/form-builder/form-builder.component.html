@@ -1,6 +1,6 @@
 <div class="flex w-full flex-col gap-20 pt-20">
   <ng-container>
-    <main class="mx-auto flex w-fit flex-col gap-4">
+    <main class="mx-auto flex w-fit flex-col items-center gap-4">
       <div class="relative mx-auto flex w-fit flex-row-reverse justify-between">
         <ng-container *ngFor="let step of allStep; index as i">
           <section class="relative flex min-w-44 flex-col items-center gap-2">
@@ -33,7 +33,7 @@
           [ngClass]="{
             '!block': form.rootLabel === currentStep
           }"
-          class="hidden rounded-md bg-background md:w-[620px]">
+          class="hidden rounded-md bg-background md:w-[620px] lg:w-[800px]">
           <p class="p-3 pt-4 text-xl text-muted-foreground">{{ form.rootLabel }}</p>
           <form class="grid grid-cols-2 gap-3 p-3" [formGroup]="forms[formIndex]">
             <app-input

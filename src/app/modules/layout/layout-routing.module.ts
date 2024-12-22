@@ -8,10 +8,15 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+  // {
+  //   path: 'employee',
+  //   component: LayoutComponent,
+  //   loadChildren: () => import('../employee/employee.module').then((m) => m.EmployeeModule),
+  // },
   {
-    path: 'employee',
+    path: 'resource',
     component: LayoutComponent,
-    loadChildren: () => import('../employee/employee.module').then((m) => m.EmployeeModule),
+    loadChildren: () => import('../resource/resource.module').then((m) => m.ResourceModule),
   },
   {
     path: 'financial',
@@ -24,9 +29,9 @@ const routes: Routes = [
     loadChildren: () => import('../geographical/geographical.module').then((m) => m.GeographicalModule),
   },
   {
-    path: 'admin',
+    path: 'project',
     component: LayoutComponent,
-    loadChildren: () => import('../admin/admin.module').then((m) => m.AdminModule),
+    loadChildren: () => import('../project/project.module').then((m) => m.ProjectModule),
   },
   {
     path: 'contact',

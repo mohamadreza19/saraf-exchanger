@@ -1,21 +1,95 @@
 <div>
   <app-view-header/>
+<app-dashboard-search (onClick)="openModal()"></app-dashboard-search>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-    <!-- Dual Card -->
+    <!-- Dual Search -->
 
     <!-- end Single Card -->
     <!-- Single Card -->
-    <div nft-chart-card [name]="'مبلغ کل درآمد فروش پنل'" class="md:col-span-2 xl:col-span-1"></div>
-    <div nft-chart-card [name]="'تعداد مشتریان خارج'" type="person" class="md:col-span-2 xl:col-span-1"></div>
-    <div nft-chart-card [name]="'تعداد مشتریان ایران'" type="person" class="md:col-span-2 xl:col-span-1"></div>
+    <div nft-chart-card [name]="'درآمد کل'" class="md:col-span-2 xl:col-span-1"></div>
+    <div nft-chart-card [name]="'درآمد امروز'" class="md:col-span-2 xl:col-span-1"></div>
+    <div nft-chart-card [name]="'تعداد مشتریان '" type="person" class="md:col-span-2 xl:col-span-1"></div>
+
+
+    <div shortcut-icons></div>
+    <div class="col-span-2  grid grid-cols-2  bg-background px-3 py-4 gap-5 rounded-md">
+      <div class="flex flex-col gap-5">
+        <header class="text-2xl text-muted-foreground text-center">
+     
+          <p >خرید</p>
+        </header>
+        <section [tp]="tpl" [tpInteractive]="true" class="border border-border rounded-lg p-2  gap-3 flex flex-col justify-center items-center" style="aspect-ratio: 1 / 1">
+          <img src="/assets/images/gray-avatar-placeholder.jpg"
+          class="min-w-24 min-h-24 max-w-24 max-h-24 rounded-full"
+        
+          />
+          <p class="font-bold text-center text-muted-foreground">علی اکبری</p>
+        </section>
+        <section [tp]="tpl" [tpInteractive]="true" class="border border-border rounded-lg p-2  gap-3 flex flex-col justify-center items-center" style="aspect-ratio: 1 / 1">
+          <img src="/assets/images/gray-avatar-placeholder.jpg"
+          class="min-w-24 min-h-24 max-w-24 max-h-24 rounded-full"
+        
+          />
+          <p class="font-bold text-center text-muted-foreground">علی اکبری</p>
+        </section>
+      </div>
+      <div class="flex flex-col gap-5">
+        <header class="text-2xl text-muted-foreground text-center">
+          <p >فروش</p>
+         
+        </header>
+        <section [tp]="tpl" [tpInteractive]="true" class="border border-border rounded-lg p-2  gap-3 flex flex-col justify-center items-center" style="aspect-ratio: 1 / 1">
+          <img src="/assets/images/gray-avatar-placeholder.jpg"
+          class="min-w-24 min-h-24 max-w-24 max-h-24 rounded-full"
+        
+          />
+          <p class="font-bold text-center text-muted-foreground">علی اکبری</p>
+        </section>
+      </div>
+   
+
+     
+      
+    </div>
     <!-- end Single Card -->
     <!-- Auctions Table -->
-    <div view-exchange-table [label]="table1Label" [body]="table1Body" [keys]="table1Keys" [itemIconUrls]="table1IconsUrl" [forbiddenKeysInItem]="table1ForbiddenKeysInItem"   class="md:col-span-2 xl:col-span-3"></div>
+    <!-- <div view-exchange-table [label]="table1Label" [body]="table1Body" [keys]="table1Keys" [itemIconUrls]="table1IconsUrl" [forbiddenKeysInItem]="table1ForbiddenKeysInItem"   class="md:col-span-2 xl:col-span-3"></div>
     <div view-exchange-table [label]="table2Label" [body]="table2Body" [keys]="table2Keys" [itemIconUrls]="[]"  [forbiddenKeysInItem]="[]"  class="md:col-span-2 xl:col-span-3"></div>
     <div view-exchange-table [label]="table3Label" [body]="table3Body" [keys]="table3Keys" [itemIconUrls]="[]"  [forbiddenKeysInItem]="[]"  class="md:col-span-2 xl:col-span-3"></div>
-    <div view-exchange-table [label]="table4Label" [body]="table4Body" [keys]="table4Keys" [itemIconUrls]="[]"  [forbiddenKeysInItem]="[]"  class="md:col-span-2 xl:col-span-3"></div>
-    <div class="md:col-span-2 xl:col-span-2" view-map></div>
-    <div nft-chart-card [name]="'صرافیها'"  type="person"  class="md:col-span-2 xl:col-span-2"></div>
+    <div view-exchange-table [label]="table4Label" [body]="table4Body" [keys]="table4Keys" [itemIconUrls]="[]"  [forbiddenKeysInItem]="[]"  class="md:col-span-2 xl:col-span-3"></div> -->
+    <!-- <div class="md:col-span-2 xl:col-span-2" view-map></div>
+    <div nft-chart-card [name]="'صرافیها'"  type="person"  class="md:col-span-2 xl:col-span-2"></div> -->
 
   </div>
 </div>
+
+<ng-template #tpl let-hide>
+ <div class="w-28 p-5 flex flex-col justify-center items-center bg-background border border-border rounded-md">
+<app-button tone="danger">
+
+  حذف
+
+
+</app-button>
+<app-button>
+<a routerLink='/financial/receive/add'>
+  دریافت
+</a>
+
+</app-button>
+<app-button>
+<a routerLink='/financial/pay/add'>
+  پرداخت
+</a>
+
+</app-button>
+<app-button>
+<a routerLink='/financial/transfer/add'>
+ انتقال
+</a>
+
+</app-button>
+
+ </div>
+</ng-template>
+
