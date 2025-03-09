@@ -33,7 +33,7 @@ import { RouterLink } from '@angular/router';
     AngularSvgIconModule,
     SearchComponent,
     ShrotcutIconsComponent,
-    TippyDirective,
+
     ButtonComponent,
     RouterLink,
   ],

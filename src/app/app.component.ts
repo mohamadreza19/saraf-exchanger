@@ -12,8 +12,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
-  imports: [NgClass, RouterOutlet, ResponsiveHelperComponent, NgxSonnerToaster, MatDialogModule, HttpClientModule],
 })
 export class AppComponent {
   title = 'Angular Tailwind';

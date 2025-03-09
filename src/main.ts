@@ -1,14 +1,8 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { AppComponent } from './app/app.component';
-import { AppRoutingModule } from './app/app-routing.module';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { GlobalI18NextPipe } from './app/shared/pipes/global-i18next.pipe';
-
-import { provideTippyLoader, provideTippyConfig, tooltipVariation, popperVariation } from '@ngneat/helipopper/config';
 
 if (environment.production) {
   enableProdMode();
@@ -18,22 +12,9 @@ if (environment.production) {
   }
 }
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    importProvidersFrom(BrowserModule, AppRoutingModule),
-    provideAnimations(),
-
-    //
-    provideTippyLoader(() => import('tippy.js')),
-    provideTippyConfig({
-      defaultVariation: 'tooltip',
-      variations: {
-        tooltip: tooltipVariation,
-        popper: popperVariation,
-      },
-    }),
-  ],
-}).catch((err) => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
 
 function selfXSSWarning() {
   setTimeout(() => {
